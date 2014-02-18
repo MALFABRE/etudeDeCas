@@ -24,7 +24,9 @@ public class Utilisateur implements Serializable {
     private String nom;
     private String prenom;
     private String mdp;
+    private String telephone;
 
+    
     public Utilisateur() {
     }
 
