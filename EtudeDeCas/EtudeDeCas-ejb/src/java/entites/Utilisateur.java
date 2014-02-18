@@ -20,21 +20,51 @@ import javax.persistence.Id;
 public class Utilisateur implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private String mail;
+    private String nom;
+    private String prenom;
+    private String mdp;
 
-    public String getId() {
-        return id;
+    public Utilisateur() {
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getMail() {
+        return mail;
     }
 
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (mail != null ? mail.hashCode() : 0);
         return hash;
     }
 
@@ -45,7 +75,7 @@ public class Utilisateur implements Serializable {
             return false;
         }
         Utilisateur other = (Utilisateur) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.mail == null && other.mail != null) || (this.mail != null && !this.mail.equals(other.mail))) {
             return false;
         }
         return true;
@@ -53,7 +83,7 @@ public class Utilisateur implements Serializable {
 
     @Override
     public String toString() {
-        return "entites.Utilisateur[ id=" + id + " ]";
+        return "entite.Utilisateur[ Email=" + mail + " | Nom=" + nom + " | Prénom=" + prenom + " | Mot de passe=" + mdp + "]";
     }
     
 }
