@@ -6,7 +6,7 @@
 
 package manager;
 
-import entite.Projet;
+import entites.Projet;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
