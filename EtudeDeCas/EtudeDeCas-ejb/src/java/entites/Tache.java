@@ -7,11 +7,13 @@
 package entites;
 
 import java.io.Serializable;
-import static java.util.Collections.list;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -26,8 +28,11 @@ public class Tache implements Serializable {
     private String description;
     private Date dateDeb;
     private Date duree;
+    @OneToOne
     private Projet monProjet;
-    private list<Salarie> listeSalarie;
+    @OneToMany
+    private Collection<Salarie> listeSalarie;
+    @OneToOne
     private Tache tachePrec;
 
     public Tache() {
@@ -81,11 +86,11 @@ public class Tache implements Serializable {
         this.monProjet = monProjet;
     }
 
-    public <any> getListeSalarie() {
+    public Collection<Salarie> getListeSalarie() {
         return listeSalarie;
     }
 
-    public void setListeSalarie(<any> listeSalarie) {
+    public void setListeSalarie(Collection listeSalarie) {
         this.listeSalarie = listeSalarie;
     }
 

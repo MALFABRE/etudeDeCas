@@ -6,12 +6,12 @@
 
 package entites;
 import entites.Utilisateur;
-
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 /**
@@ -27,7 +27,7 @@ public class Projet implements Serializable {
     private Date dateDebut;
     private Date dateFin;
     private String description;
-    
+    @OneToOne
     private String monUtilisateur;
 
     public Projet() {

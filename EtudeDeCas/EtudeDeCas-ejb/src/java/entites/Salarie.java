@@ -25,7 +25,9 @@ public class Salarie implements Serializable {
     private Long num;
     private String nom;
     private String prenom;
+    @OneToOne
     private Fonction maFonction;
+    @OneToOne
     private Utilisateur utilisateurMaitre;
 
     public Salarie() {
