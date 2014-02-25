@@ -7,6 +7,7 @@
 package manager;
 
 import entites.Projet;
+import java.util.Date;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 

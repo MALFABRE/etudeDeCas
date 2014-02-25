@@ -10,6 +10,7 @@ import entites.Projet;
 import entites.Salarie;
 import entites.Tache;
 import java.util.Collection;
+import java.util.Date;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
@@ -26,7 +27,7 @@ public class tacheManager {
     public void nouvelleTache(String titre, String description, Date dateDeb, Date duree, Projet monProjet, Collection<Salarie> listeSalarie, Tache tachePrec){
         maTache.setTitre(titre);
         maTache.setDescription(description);
-        maTache.setDateDeb(titre);
+        maTache.setDateDeb(dateDeb);
         maTache.setDuree(duree);
         maTache.setProjet(monProjet);
         maTache.setListeSalarie(listeSalarie);
