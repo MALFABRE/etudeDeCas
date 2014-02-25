@@ -78,7 +78,7 @@ public class Salarie implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (num != null ? num.hashCode() : 0);
         return hash;
     }
 
@@ -89,7 +89,7 @@ public class Salarie implements Serializable {
             return false;
         }
         Salarie other = (Salarie) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.num == null && other.num != null) || (this.num != null && !this.num.equals(other.num))) {
             return false;
         }
         return true;
@@ -97,7 +97,7 @@ public class Salarie implements Serializable {
 
     @Override
     public String toString() {
-        return "entites.Salarie[ id=" + id + " ]";
+        return "entites.Salarie[ num=" + num + " nom=" + nom + " prenom=" + prenom + " ]";
     }
     
 }

@@ -8,12 +8,14 @@ package entites;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -26,7 +28,9 @@ public class Tache implements Serializable {
     private Long num;
     private String titre;
     private String description;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateDeb;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date duree;
     @OneToOne
     private Projet monProjet;
