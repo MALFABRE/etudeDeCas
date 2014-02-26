@@ -31,5 +31,13 @@ public class utilisateurMBean {
         utilisateurManager.enregistrerUtilisateur(monUtilisateur.getMail(), monUtilisateur.getNom(), monUtilisateur.getPrenom(), monUtilisateur.getMdp());
     }
     
+    public Utilisateur getMonUtilisateur(){
+        return this.monUtilisateur;
+    }
+    
+    public void setMonUtilisateur(Utilisateur inUtilisateur){
+        this.monUtilisateur = inUtilisateur;
+    }
+    
     
 }
