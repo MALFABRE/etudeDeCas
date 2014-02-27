@@ -30,12 +30,19 @@ public class utilisateurMBean {
     
     @PostConstruct
     public void init() {  
+        monUtilisateur = new Utilisateur();
     }
     
     
         
     public void enregistrer(){
+        try{
+         
         utilisateurManager.enregistrerUtilisateur(monUtilisateur.getMail(), monUtilisateur.getNom(), monUtilisateur.getPrenom(), monUtilisateur.getMdp());
+        }
+        catch(Exception e) {
+             System.out.print(e.getMessage());
+        }
     }
     
     public Utilisateur getMonUtilisateur(){
