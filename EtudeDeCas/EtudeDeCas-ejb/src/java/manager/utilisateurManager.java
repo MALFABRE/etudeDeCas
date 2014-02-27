@@ -9,6 +9,8 @@ package manager;
 import entites.Utilisateur;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -18,6 +20,9 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class utilisateurManager {
     
+    @PersistenceContext
+    private EntityManager entityManager;
+    
     Utilisateur monUtilisateur = new Utilisateur();
     
     public void enregistrerUtilisateur(String mail, String nom, String prenom, String mdp){
@@ -25,6 +30,7 @@ public class utilisateurManager {
         monUtilisateur.setNom(nom);
         monUtilisateur.setPrenom(prenom);
         monUtilisateur.setMdp(mdp);
+        entityManager.persist(monUtilisateur);
     }
     
     public void supprimerUtilisateur (String mail){
