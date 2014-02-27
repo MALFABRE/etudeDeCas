@@ -6,48 +6,43 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http:/java.sun.com/jsf/html">
+     xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
-    <meta charset="utf-8"/>
     <title>Bienvenue</title>
 </h:head>
 <h:body>
 	<div id="connexion">
 		<h1 id="titre">Etude de cas</h1>
-		<form>
+		<h:form>
 			<label>Votre email :</label>
-			<h:inputText type="email" name="email" id="inMail"/>
+			<h:inputText id="inMail"/>
 			<label>Mot de passe :</label>
-			<h:inputText type="password" name="password" id="inPwd"/>
+			<h:inputText id="inPwd"/>
 			<h:commandButton type="submit" value="Se connecter"/>
-		</form>
+		</h:form>
 	</div>
 	<div id="inscription">
-		<form>
+		<h:form>
 			<p>
-                            <h:inputText type="text" name="nom" id="nom" value="#{utilisateurMBean.monUtilisateur.nom}"/>
                             <label for="nom">Votre nom</label>
+                            <h:inputText id="nom" value="#{utilisateurMBean.monUtilisateur.nom}"/>
 			</p>
 			<p>
-                            <h:inputText type="text" name="prenom" id="prenom" value="#{utilisateurMBean.monUtilisateur.prenom}"/>
+                            <h:inputText id="prenom" value="#{utilisateurMBean.monUtilisateur.prenom}"/>
                             <label for="prenom">Votre prenom</label>
 			</p>
 			<p>
-                            <h:inputText type="email" name="email" id="mail"  value="#{utilisateurMBean.monUtilisateur.mail}"/>
+                            <h:inputText id="mail"  value="#{utilisateurMBean.monUtilisateur.mail}"/>
                             <label for="email">Votre email</label>
 			</p>
 			<p>
-                            <h:inputText type="password" name="password" id="pwd" />
+                            <h:inputText id="pwd" value="#{utilisateurMBean.monUtilisateur.mdp}"/>
                             <label for="password">Mot de passe</label>
-			</p>
-			<p>
-                            <h:inputText type="password" name="password2" id="pwd2" value="#{utilisateurMBean.monUtilisateur.mdp}"/>
-                            <label for="password2">Mot de passe</label>
 			</p>
 			<p>
                             <h:commandButton id="envoyer" type="button" value="S'enregistrer" action="#{utilisateurMBean.enregistrer()}"/>
 			</p>
-		</form>
+		</h:form>
 	</div>
 </h:body>
 </html>

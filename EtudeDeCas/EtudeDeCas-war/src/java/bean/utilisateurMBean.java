@@ -7,6 +7,7 @@
 package bean;
 
 import entites.Utilisateur;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -26,6 +27,12 @@ public class utilisateurMBean {
     
     public utilisateurMBean() {
     }
+    
+    @PostConstruct
+    public void init() {  
+    }
+    
+    
         
     public void enregistrer(){
         utilisateurManager.enregistrerUtilisateur(monUtilisateur.getMail(), monUtilisateur.getNom(), monUtilisateur.getPrenom(), monUtilisateur.getMdp());
