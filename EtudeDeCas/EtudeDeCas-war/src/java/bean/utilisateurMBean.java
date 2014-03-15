@@ -37,12 +37,13 @@ public class utilisateurMBean {
         
     public void enregistrer(){
         try{
-         
+        System.out.println("Ajout nouvel utilisateur : "+monUtilisateur.toString());
         utilisateurManager.enregistrerUtilisateur(monUtilisateur.getMail(), monUtilisateur.getNom(), monUtilisateur.getPrenom(), monUtilisateur.getMdp());
         }
         catch(Exception e) {
              System.out.print(e.getMessage());
         }
+        
     }
     
     public Utilisateur getMonUtilisateur(){

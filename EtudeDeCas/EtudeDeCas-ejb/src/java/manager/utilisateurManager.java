@@ -22,10 +22,9 @@ public class utilisateurManager {
     
     @PersistenceContext
     private EntityManager entityManager;
-    
-    Utilisateur monUtilisateur = new Utilisateur();
-    
+        
     public void enregistrerUtilisateur(String mail, String nom, String prenom, String mdp){
+        Utilisateur monUtilisateur = new Utilisateur();
         monUtilisateur.setMail(mail);
         monUtilisateur.setNom(nom);
         monUtilisateur.setPrenom(prenom);

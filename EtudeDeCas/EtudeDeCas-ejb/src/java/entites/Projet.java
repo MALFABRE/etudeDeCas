@@ -31,7 +31,7 @@ public class Projet implements Serializable {
     private Date dateFin;
     private String description;
     @OneToOne
-    private String monUtilisateur;
+    private Utilisateur monUtilisateur;
 
     public Projet() {
     }
@@ -68,11 +68,11 @@ public class Projet implements Serializable {
         this.description = description;
     }
 
-    public String getMonUtilisateur() {
+    public Utilisateur getMonUtilisateur() {
         return monUtilisateur;
     }
 
-    public void setMonUtilisateur(String monUtilisateur) {
+    public void setMonUtilisateur(Utilisateur monUtilisateur) {
         this.monUtilisateur = monUtilisateur;
     }
     
