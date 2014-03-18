@@ -1,37 +1,61 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package entites;
+
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
  *
  * @author Thibaut
  */
+
 @Entity
+@Table(name = "Projet")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Projet.findAll",
+            query = "SELECT p FROM Projet p"),
+    @NamedQuery(name = "Projet.findByNum",
+            query = "SELECT p FROM Projet p WHERE (p.num = :num)"),
+    @NamedQuery(name = "Projet.findByDateDebut",
+            query = "SELECT p FROM Projet p WHERE (p.dateDebut = :dateDebut)"),
+   @NamedQuery(name = "Projet.findByDateFin",
+            query = "SELECT p FROM Projet p WHERE (p.dateFin = :dateFin)"),
+    @NamedQuery(name = "Projet.findByUtilisateur",
+            query = "SELECT p FROM Projet p WHERE (p.utilisateur = :utilisateur)"),
+})
 public class Projet implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long num;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dateDebut;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dateFin;
+    
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @NotNull
+    private Calendar dateDebut;
+    
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Calendar dateFin;
+    
+    
     private String description;
+    
     @OneToOne
-    private Utilisateur monUtilisateur;
+    @NotNull
+    private Utilisateur utilisateur;
 
     public Projet() {
     }
@@ -44,19 +68,19 @@ public class Projet implements Serializable {
         this.num = num;
     }
 
-    public Date getDateDebut() {
+    public Calendar getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
+    public void setDateDebut(Calendar dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin() {
+    public Calendar getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
+    public void setDateFin(Calendar dateFin) {
         this.dateFin = dateFin;
     }
 
@@ -68,16 +92,14 @@ public class Projet implements Serializable {
         this.description = description;
     }
 
-    public Utilisateur getMonUtilisateur() {
-        return monUtilisateur;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
-    public void setMonUtilisateur(Utilisateur monUtilisateur) {
-        this.monUtilisateur = monUtilisateur;
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
     
-    
-
     @Override
     public int hashCode() {
         int hash = 0;

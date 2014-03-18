@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <div class="gauche">
+        <table class="table" border="1"> 
+
+            <caption>
+                <h3>Utilisateur: 
+                    <h:outputText value="#{utilisateurMBean.utilisateurCourant.nom}" />
+                    <a class="par" href="#"></a>
+                </h3>
+            </caption> 
+
+
+            <h:form id="formProjet">
+                <tr>
+                    <th>Projet :
+                        <h:outputText value="#{not empty projetMBean.projetCourant.num ? projetMBean.projetCourant.num : 'Aucun' }" />
+                        <a class="prof" href="#"></a>
+                    </th>
+                </tr>  
+                <tr>
+                    <td> 
+                        <p:commandLink id="newProject" actionListener="#{projetMBean.showNewProjetForm()}" styleClass="new" update=":panel_new_projet">  
+                            Nouveau
+                        </p:commandLink>
+                    </td>
+                </tr> 
+                <tr>
+                    <td> <a class="open" href="#">Ouvrir</a></td>
+                </tr> 
+                <tr>
+                    <td> <a class="edit" href="#">Modifier</a></td>
+                </tr>
+                <tr>
+                    <td> <a class="save" href="#">Sauvegarder</a></td>
+                </tr> 
+                <tr>
+                    <td> <a class="delete" href="#">Supprimer</a></td>
+                </tr> 
+                <tr>
+                    <td> <a class="export" href="#">Exporter</a></td>
+                </tr>
+            </h:form>
+
+
+            <h:form id="formTache">
+                <tr>
+                    <th>Tache : ???<a class="prof" href="#"></a></th>
+                </tr>  
+                <tr>
+                    <td> <a class="new" href="#">Ajouter</a></td>
+                </tr> 
+                <tr>
+                    <td> <a class="edit" href="#">Editer</a></td>
+                </tr> 
+                <tr>
+                    <td> <a class="delete" href="#">Supprimer</a></td>
+                </tr> 
+            </h:form>
+
+
+            <h:form id="formPersonnel">
+                <tr>
+                    <th>Personnel : ???<a class="prof" href="#"></a></th>
+                </tr>  
+                <tr>
+                    <td> <a class="new" href="#">Ajouter</a></td>
+                </tr>
+                <tr>
+                    <td> <a class="edit" href="#">Editer</a></td>
+                </tr> 
+                <tr>
+                    <td> <a class="delete" href="#">Supprimer</a></td>
+                </tr>
+            </h:form>
+
+
+        </table> 
+    </div>
+</ui:composition>

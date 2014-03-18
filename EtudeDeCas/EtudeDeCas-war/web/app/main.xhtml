@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>Etude de cas - Page principale</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+        <h:outputStylesheet library="css" name="reset.css"  />
+        <h:outputStylesheet library="css" name="font.css"  />
+    </h:head>
+    <h:body>
+        
+        <!-- =========================================== Nav ================================ -->
+        <ui:include src="navigation/menu_gauche.xhtml"/>
+
+        <!-- ========================================== Cont ================================ -->
+        #{projetMBean.newProjetForm}
+        <!-- ======================================== Pop-up ================================ -->
+        <ui:include src="projet_compo/ajouter_projet.xhtml"/>
+
+        
+    </h:body>
+</html>

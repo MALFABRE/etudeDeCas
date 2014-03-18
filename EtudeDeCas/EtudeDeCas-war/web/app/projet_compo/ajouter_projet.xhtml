@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:panelGroup id="panel_new_projet" layout="block">
+        <h:panelGroup styleClass="first projet" rendered="#{projetMBean.newProjetForm}">
+            <div class="second">
+                <h2 class="titrePop">Projet</h2>
+                <h:form>
+                    <p>
+                        <h:inputText styleClass="nom" required="true" value="#{projetMBean.projetCourant.num}" />
+                        <label for="nom">Num</label>
+                    </p>
+                    <p>
+                        <h:inputText styleClass="dateD" required="true" value="#{projetMBean.projetCourant.dateDebut}" />
+                        <label for="dateD">Date de debut</label>
+                    </p>
+                    <p>
+                        <h:inputText styleClass="dateF" required="true" value="#{projetMBean.projetCourant.dateFin}"  />
+                        <label for="dateF">Date de fin</label>
+                    </p>
+                    <p>
+
+                        <p:inputTextarea />
+                        <label for="message">Description</label>
+                    </p>
+                    <p>
+                        <p:commandButton styleClass="envoyer" type="submit" value="Annuler" actionListener="#{projetMBean.hideNewProjetForm()}" update=":panel_new_projet"/>
+                        <p:commandButton styleClass="envoyer" type="submit" value="Créer nouveau projet" actionListener="#{projetMBean.nouveauProjet()}" />
+                    </p>
+                </h:form>
+            </div>
+        </h:panelGroup>
+    </h:panelGroup>
+</ui:composition>

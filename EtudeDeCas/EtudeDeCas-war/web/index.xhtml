@@ -1,50 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
      xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui" >
 <h:head>
         <meta charset="utf-8"/>
-        <title>Titre de la page</title>
+        <title>Etude de cas - Connexion</title>
         <h:outputStylesheet library="css" name="style.css"  />
         <h:outputStylesheet library="css" name="reset.css"  />
 </h:head>
 <h:body>
     <div class="head">
         <h1 class="titre">Etude de cas</h1>
-        <form>
+        <h:form id="connexion">
             <label>Votre email :</label>
-            <input type="email" name="email" class="inMail"   placeholder="ex: mail@domaine.com"/>
+            <p:inputText type="email" styleClass="inMail" value="#{utilisateurMBean.utilisateurCourant.mail}"   placeholder="ex: mail@domaine.com"/>
             <label>Mot de passe :</label>
-            <input type="password" name="password" class="inPwd" />
-            <input type="submit" value="Se connecter"/>
-        </form>
+            <p:password styleClass="inPwd" value="#{utilisateurMBean.utilisateurCourant.mdp}" />
+            <p:commandButton type="submit" value="Se connecter" action="#{utilisateurMBean.seConnecter()}"/>
+        </h:form>
     </div>
     <div class="inscrip">
-        <h:form>
+        <h:form id="inscription">
             <p>
-                <p:inputText type="text" styleClass="nom" value="#{utilisateurMBean.monUtilisateur.nom}" required="true" />
+                <p:inputText type="text" styleClass="nom" value="#{utilisateurMBean.utilisateurCourant.nom}" required="true" />
                 <label for="nom">Votre nom</label>
             </p>
             <p>
-                <p:inputText type="text" styleClass="nom" value="#{utilisateurMBean.monUtilisateur.prenom}" required="true" />
+                <p:inputText type="text" styleClass="nom" value="#{utilisateurMBean.utilisateurCourant.prenom}" required="true" />
                 <label for="prenom">Votre prenom</label>
             </p>
             <p>
-                <p:inputText type="email" styleClass="mail"   placeholder="ex: mail@domaine.com" value="#{utilisateurMBean.monUtilisateur.mail}" required="true"/>
+                <p:inputText type="email" styleClass="mail"   placeholder="ex: mail@domaine.com" value="#{utilisateurMBean.utilisateurCourant.mail}" required="true"/>
                 <label for="email">Votre email</label>
             </p>
             <p>
-                <p:password match="pwd2" styleClass="pwd" value="#{utilisateurMBean.monUtilisateur.mdp}" required="true" />
+                <p:password match="pwd2" styleClass="pwd" value="#{utilisateurMBean.utilisateurCourant.mdp}" required="true" />
                 <label for="password">Mot de passe</label>
             </p>
             <p>
-                <p:password id="pwd2" styleClass="pwd2" required="true"/>
+                <p:password id="pwd2" styleClass="pwd2" value="#{utilisateurMBean.utilisateurCourant.mdp}" required="true"/>
                 <label for="password2">Mot de passe</label>
             </p>
             <p>

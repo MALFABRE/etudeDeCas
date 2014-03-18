@@ -6,27 +6,58 @@
 
 package entites;
 
-import entites.Utilisateur;
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Thibaut
  */
+
+
 @Entity
+@Table(name = "Salarie")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Salarie.findAll",
+            query = "SELECT s FROM Salarie s"),
+    @NamedQuery(name = "Salarie.findByNum",
+            query = "SELECT s FROM Salarie s WHERE (s.num = :num)"),
+    @NamedQuery(name = "Salarie.findByNom",
+            query = "SELECT s FROM Salarie s WHERE (s.nom = :nom)"),
+    @NamedQuery(name = "Salarie.findByFonction",
+            query = "SELECT s FROM Salarie s WHERE (s.fonction = :fonction)"),
+    @NamedQuery(name = "Salarie.findByUtilisateurMaitre",
+            query = "SELECT s FROM Salarie s WHERE (s.utilisateurMaitre = :utilisateurMaitre)")
+
+})
+
 public class Salarie implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     private Long num;
+    
+    @NotNull
+    @Size(min = 2, max = 255, message = "Le nom doit contenir au minimum 2 caractères")
     private String nom;
+
+    @NotNull
+    @Size(min = 2, max = 255, message = "Le prenom doit contenir au minimum 2 caractères")
     private String prenom;
+    
+    @NotNull
     @OneToOne
-    private Fonction maFonction;
+    private Fonction fonction;
+    
+    @NotNull
     @OneToOne
     private Utilisateur utilisateurMaitre;
 
@@ -58,11 +89,11 @@ public class Salarie implements Serializable {
     }
 
     public Fonction getFonction() {
-        return maFonction;
+        return fonction;
     }
 
-    public void setFonction(Fonction maFonction) {
-        this.maFonction = maFonction;
+    public void setFonction(Fonction fonction) {
+        this.fonction = fonction;
     }
 
     public Utilisateur getUtilisateurMaitre() {
