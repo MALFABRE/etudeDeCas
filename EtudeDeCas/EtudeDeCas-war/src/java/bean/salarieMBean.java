@@ -10,6 +10,7 @@ import entites.Salarie;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import manager.salarieManager;
 
@@ -25,6 +26,7 @@ public class salarieMBean {
     private salarieManager salarieManager;
     
     private Salarie salarieCourant;
+    private boolean newSalarieForm;
     
     public salarieMBean() {
     }
@@ -32,6 +34,7 @@ public class salarieMBean {
     @PostConstruct
     public void init(){
         salarieCourant = new Salarie();
+        newSalarieForm = false;
     }
     
     //========================================================================== getters et setters
@@ -44,6 +47,19 @@ public class salarieMBean {
         this.salarieCourant = inSalarie;
     }
     
+    public boolean isNewSalarieForm() {
+        return newSalarieForm;
+    }
+    public void setNewSalarieForm(boolean newSalarieForm) {
+        this.newSalarieForm = newSalarieForm;
+    }
+    public void showNewSalarieForm() {
+        this.newSalarieForm=true;
+    }
+    public void hideNewSalarieForm() {
+        this.newSalarieForm=false;
+        this.salarieCourant= new Salarie(); 
+    }
     //========================================================================== Action
     //=============================================================================================
     public void enregistrer(){
@@ -52,12 +68,18 @@ public class salarieMBean {
         this.salarieManager.ajouterSalarie(this.salarieCourant.getNom(),
                                            this.salarieCourant.getPrenom(),
                                            this.salarieCourant.getFonction(),
-                                           this.salarieCourant.getUtilisateurMaitre());
+                                           this.utilisateurEnSession.getUtilisateurCourant());
         }
         catch(Exception e) {
              System.out.print(e.getMessage());
         }
     }
     
+    	@ManagedProperty(value="#{utilisateurEnSession}")
+	private utilisateurMBean utilisateurEnSession;
+    
+        public void setMessageBean(utilisateurMBean inUtilisateurEnSession) {
+            this.utilisateurEnSession = inUtilisateurEnSession;
+	}
     
 }

@@ -69,7 +69,9 @@
                     <th>Personnel : ???<a class="prof" href="#"></a></th>
                 </tr>  
                 <tr>
-                    <td> <a class="new" href="#">Ajouter</a></td>
+                    <p:commandLink id="newSalarie" actionListener="#{salarieMBean.showNewSalarieForm()}" styleClass="new" update=":panel_new_salarie">  
+                        Ajouter
+                    </p:commandLink>
                 </tr>
                 <tr>
                     <td> <a class="edit" href="#">Editer</a></td>

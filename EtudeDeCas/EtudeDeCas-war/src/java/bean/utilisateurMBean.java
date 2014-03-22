@@ -14,7 +14,7 @@ import manager.utilisateurManager;
  *
  * @author Thibaut
  */
-@ManagedBean
+@ManagedBean(name="utilisateurEnSession")
 @SessionScoped
 public class utilisateurMBean implements Serializable {
 

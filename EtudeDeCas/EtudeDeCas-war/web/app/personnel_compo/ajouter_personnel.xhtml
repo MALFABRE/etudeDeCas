@@ -1,16 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:panelGroup id="panel_new_salarie" layout="block">
+        <h:panelGroup styleClass="first salarie" rendered="#{salarieMBean.newSalarieForm}">
+            <div class="second">
+                <h2 class="titrePop">Salarie</h2>
+                <h:form>
+                    <p>
+                        <h:inputText styleClass="nom" required="true" value="#{salarieMBean.salarieCourant.nom}" />
+                        <label for="nom">Nom</label>
+                    </p>
+                    <p>
+                        <h:inputText styleClass="prenom" required="true" value="#{salarieMBean.salarieCourant.prenom}" />
+                        <label for="dateD">Prénom</label>
+                    </p>
+                    <p>
+                        <h:inputText styleClass="fonction" required="true" value="#{salarieMBean.salarieCourant.fonction}"  />
+                        <label for="dateF">Fonction</label>
+                    </p>
+                    <p>
+                        <p:commandButton styleClass="envoyer" type="submit" value="Annuler" actionListener="#{salarieMBean.hideNewSalarieForm()}" update=":panel_new_salarie"/>
+                        <p:commandButton styleClass="envoyer" type="submit" value="Créer nouveau projet" actionListener="#{salarieMBean.enregistrer()}" />
+                    </p>
+                </h:form>
+            </div>
+        </h:panelGroup>
+    </h:panelGroup>
+</ui:composition>
