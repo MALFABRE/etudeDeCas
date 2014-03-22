@@ -63,7 +63,6 @@ public class projetMBean implements Serializable {
     //=============================================================================================
     
     public void nouveauProjet(){
-    
     };
     public void ouvrirProjet(){};
     public void modifierProjet(){};
