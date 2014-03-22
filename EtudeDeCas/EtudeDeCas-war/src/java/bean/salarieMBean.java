@@ -24,24 +24,23 @@ public class salarieMBean {
     @EJB
     private salarieManager salarieManager;
     
-    private salarieManager salarieCourant;
-    
+    private Salarie salarieCourant;
     
     public salarieMBean() {
     }
 
     @PostConstruct
-    Public void init(){
+    public void init(){
         salarieCourant = new Salarie();
     }
     
     //========================================================================== getters et setters
     //=============================================================================================
-    public salarieManager getSalarieCourant() {
+    public Salarie getSalarieCourant() {
         return salarieCourant;
     }
 
-    public void setSalarieCourant(salarieManager inSalarie) {
+    public void setSalarieCourant(Salarie inSalarie) {
         this.salarieCourant = inSalarie;
     }
     
@@ -50,7 +49,7 @@ public class salarieMBean {
     public void enregistrer(){
         try{
         System.out.println("Ajout nouvel utilisateur : "+this.salarieCourant.toString());
-        this.salarieCourant.ajouterSalarie(this.salarieCourant.getNom(),
+        this.salarieManager.ajouterSalarie(this.salarieCourant.getNom(),
                                            this.salarieCourant.getPrenom(),
                                            this.salarieCourant.getFonction(),
                                            this.salarieCourant.getUtilisateurMaitre());
