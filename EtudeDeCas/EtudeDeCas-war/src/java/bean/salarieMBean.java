@@ -25,6 +25,9 @@ public class salarieMBean {
     @EJB
     private salarieManager salarieManager;
     
+    @ManagedProperty(value="#{utilisateurEnSession}")
+    private utilisateurMBean utilisateurSession;
+    
     private Salarie salarieCourant;
     private boolean newSalarieForm;
     
@@ -42,11 +45,12 @@ public class salarieMBean {
     public Salarie getSalarieCourant() {
         return salarieCourant;
     }
-
     public void setSalarieCourant(Salarie inSalarie) {
         this.salarieCourant = inSalarie;
     }
     
+    //========================================================================== pop up
+    //=============================================================================================   
     public boolean isNewSalarieForm() {
         return newSalarieForm;
     }
@@ -68,18 +72,16 @@ public class salarieMBean {
         this.salarieManager.ajouterSalarie(this.salarieCourant.getNom(),
                                            this.salarieCourant.getPrenom(),
                                            this.salarieCourant.getFonction(),
-                                           this.utilisateurEnSession.getUtilisateurCourant());
+                                           this.utilisateurSession.getUtilisateurCourant());
         }
         catch(Exception e) {
              System.out.print(e.getMessage());
         }
     }
+ 
     
-    	@ManagedProperty(value="#{utilisateurEnSession}")
-	private utilisateurMBean utilisateurEnSession;
-    
-        public void setMessageBean(utilisateurMBean inUtilisateurEnSession) {
-            this.utilisateurEnSession = inUtilisateurEnSession;
+        public void setUtilisateurSession(utilisateurMBean inUtilisateurEnSession) {
+            this.utilisateurSession = inUtilisateurEnSession;
 	}
     
 }

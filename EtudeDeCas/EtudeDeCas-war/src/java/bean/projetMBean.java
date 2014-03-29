@@ -44,7 +44,9 @@ public class projetMBean implements Serializable {
     public void setProjetCourant(Projet projetCourant) {
         this.projetCourant = projetCourant;
     }
-
+    
+    //========================================================================== pop up
+    //=============================================================================================  
     public boolean isNewProjetForm() {
         return newProjetForm;
     }
